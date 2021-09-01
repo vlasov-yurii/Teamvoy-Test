@@ -34,7 +34,8 @@ class OrderServiceImplTest {
         Item item = createItem(name, quantity);
         Order order = createOrder(name, quantity);
 
-        Mockito.when(itemRepository.getItemByMinPrice(name, quantity)).thenReturn(Optional.of(item));
+        Mockito.when(itemRepository.getItemByMinPrice(name, quantity))
+                .thenReturn(Optional.of(item));
         Mockito.when(orderRepository.save(order)).thenReturn(order);
 
         Order actual = orderService.add(order);
@@ -49,7 +50,8 @@ class OrderServiceImplTest {
         Item item = createItem("apple", 5L);
         Order order = createOrder("grape", 2L);
 
-        Mockito.when(itemRepository.getItemByMinPrice(item.getName(), item.getQuantity())).thenReturn(Optional.of(item));
+        Mockito.when(itemRepository.getItemByMinPrice(item.getName(), item.getQuantity()))
+                .thenReturn(Optional.of(item));
         Mockito.when(orderRepository.save(order)).thenReturn(order);
 
         try {

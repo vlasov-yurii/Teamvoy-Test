@@ -1,5 +1,8 @@
 package teamvoy.test.service.impl;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import teamvoy.test.dao.ItemRepository;
 import teamvoy.test.dao.OrderRepository;
@@ -7,9 +10,6 @@ import teamvoy.test.exeption.DataProcessingException;
 import teamvoy.test.model.Item;
 import teamvoy.test.model.Order;
 import teamvoy.test.service.OrderService;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -23,7 +23,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order add(Order order) {
-        Optional<Item> itemByMinPrice = itemRepository.getItemByMinPrice(order.getItem(), order.getQuantity());
+        Optional<Item> itemByMinPrice = itemRepository
+                .getItemByMinPrice(order.getItem(), order.getQuantity());
         if (itemByMinPrice.isEmpty()) {
             Optional<Item> item = itemRepository.getItemByName(order.getItem());
             if (item.isEmpty()) {

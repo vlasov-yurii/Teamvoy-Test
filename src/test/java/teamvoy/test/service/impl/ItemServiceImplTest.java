@@ -55,7 +55,8 @@ class ItemServiceImplTest {
         apple.setQuantity(5L);
         apple.setPrice(BigDecimal.valueOf(10));
 
-        Mockito.when(itemRepository.getItemByMinPrice(name, quantity)).thenReturn(Optional.of(apple));
+        Mockito.when(itemRepository.getItemByMinPrice(name, quantity))
+                .thenReturn(Optional.of(apple));
 
         try {
             itemService.getItem("grape", quantity);
@@ -72,9 +73,11 @@ class ItemServiceImplTest {
             apple.setName(name);
             apple.setQuantity(quantity);
             apple.setPrice(BigDecimal.valueOf(10));
-            return Mockito.when(itemRepository.getItemByMinPrice(name, quantity)).thenReturn(Optional.of(apple));
+            return Mockito.when(itemRepository.getItemByMinPrice(name, quantity))
+                    .thenReturn(Optional.of(apple));
         }
-        return Mockito.when(itemRepository.getItemByMinPrice(name, quantity)).thenReturn(Optional.of(item));
+        return Mockito.when(itemRepository.getItemByMinPrice(name, quantity))
+                .thenReturn(Optional.of(item));
     }
 
     private void checked(String name, Long quantity, Item item) {

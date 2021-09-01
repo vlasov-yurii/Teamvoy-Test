@@ -1,10 +1,9 @@
 package teamvoy.test.service.impl.mapper;
 
+import java.time.LocalDateTime;
 import org.springframework.stereotype.Component;
 import teamvoy.test.model.Order;
 import teamvoy.test.model.dto.OrderRequestDto;
-
-import java.time.LocalDateTime;
 
 @Component
 public class OrderRequestMapper {
